@@ -8,8 +8,24 @@ class Api::V1::OrdersController < ApplicationController
 
       render json: order
     else
-      render json: {error: 'There was an error!'}
+      render json: {error: order.errors.full_messages}
     end
+  end
+
+  def update
+    order = Order.find params[:id]
+
+    if order.update(order_params)
+      render json: order
+    else
+      render json: { error: order.errors.full_messages }
+    end
+  end
+
+  def notifications
+    orders = Order.where(status: %w[Preparing Ready])
+
+    render json: orders.group_by(&:status).map{|key, value|  { key => value.map(&:id)} }
   end
 
   private

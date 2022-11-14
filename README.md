@@ -7,18 +7,15 @@ Things you may want to cover:
 
 * Ruby version
 
-* System dependencies
+  2.7.4
 
-* Configuration
+* Rails Version
+  
+  6.1.7
 
-* Database creation
+* Database ERD
 
-* Database initialization
 
-* How to run the test suite
+![This is an image](public/ERD.png)
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
