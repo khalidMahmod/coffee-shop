@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_13_150619) do
+ActiveRecord::Schema.define(version: 2022_11_14_045238) do
 
   create_table "cart_discounts", force: :cascade do |t|
     t.integer "cart_id", null: false
@@ -55,15 +55,6 @@ ActiveRecord::Schema.define(version: 2022_11_13_150619) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "order_notifications", force: :cascade do |t|
-    t.integer "order_id", null: false
-    t.datetime "order_time"
-    t.datetime "completion_time"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["order_id"], name: "index_order_notifications_on_order_id"
-  end
-
   create_table "orders", force: :cascade do |t|
     t.integer "cart_id", null: false
     t.string "status"
@@ -76,6 +67,5 @@ ActiveRecord::Schema.define(version: 2022_11_13_150619) do
   add_foreign_key "cart_discounts", "discounts"
   add_foreign_key "cart_items", "carts"
   add_foreign_key "cart_items", "items"
-  add_foreign_key "order_notifications", "orders"
   add_foreign_key "orders", "carts"
 end
